@@ -1,0 +1,20 @@
+{
+  parserClass="pro.doczilla.parser.BLParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="BL"
+  psiImplClassSuffix="Impl"
+  psiPackage="pro.doczilla.language.psi"
+  psiImplPackage="pro.doczilla.language.psi.impl"
+
+  elementTypeHolderClass="pro.doczilla.language.psi.BLTypes"
+  elementTypeClass="pro.doczilla.language.psi.BLElementType"
+  tokenTypeClass="pro.doczilla.language.psi.BLTokenType"
+}
+
+blFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
